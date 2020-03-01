@@ -24,11 +24,11 @@ module.exports = app => {
     let idx;
 
     for (let i in noteData) {
-      if (id === noteData[i].id) {
+      if (id == noteData[i].id) {
         idx = i;
+        noteData.splice(idx, 1);
       }
     }
-    noteData.splice(idx, 1);
 
     fs.writeFile("./db/db.json", JSON.stringify(noteData), err => {
       if (err) throw err;
